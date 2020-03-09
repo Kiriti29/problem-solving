@@ -27,4 +27,5 @@ class Permutations:
 if __name__ == "__main__":
     p = Permutations()
     out = p.permutations("abcdef")
+    out.sort()
     print(out)
