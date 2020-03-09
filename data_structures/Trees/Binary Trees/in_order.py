@@ -1,25 +1,27 @@
-from binary_search_tree import BinarySearchTree
+"""
+    author = Muktevi Kiriti
+    logic - Left, Root, Right
+"""
+
+from Trees.binary_search_tree import BinarySearchTree
 
 
 class InOrder:
 
-    def __init__(self):
-        pass
+    def in_order(self, bt, parent):
 
-    def in_order(self, root):
-        parent = None
-        while True:
-            if root.left:
-                parent = root
-                root = root.left
-                continue
-            else:
-                left_child = root.root
-                root = parent
-                print(left_child, parent.root)
-                break
+        if bt.left:
+            parent = bt
+            self.in_order(bt.left, parent)
+        print(bt.root)
+        if bt.right:
+            self.in_order(bt.right, parent)
 
-            # elif root.right:
-            #     pass
-            # else:
-            #     break
+
+if __name__ == "__main__":
+    bt = BinarySearchTree()
+    test_input = [7, 5, 1, 2, 6, 8, 4]
+    for i in test_input:
+        bt.insert_node(i)
+    io = InOrder()
+    io.in_order(bt.get_root(), bt.get_root().parent)
