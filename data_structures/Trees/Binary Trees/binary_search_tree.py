@@ -29,6 +29,12 @@ class BinarySearchTree:
     def get_right_child(self, node):
         return node.right
 
+    def has_left_child(self, node):
+        return node.left is not None
+
+    def has_right_child(self, node):
+        return node.right is not None
+
     def insert_node(self, value):
         root = self.root
         if root.root is None:
